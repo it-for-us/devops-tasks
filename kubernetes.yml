@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: test-deployment
-        image: firatkucuk/devops-tasks:latest
+        image: ghcr.io/it-for-us/devops-tasks:latest
         ports:
         - containerPort: 8080
 ---

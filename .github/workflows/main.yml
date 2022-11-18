@@ -46,4 +46,4 @@ jobs:
         with:
           namespace: devops
           manifests: kubernetes.yml
-          images: firatkucuk/devops-tasks:latest
+          images: ghcr.io/it-for-us/devops-tasks:latest
