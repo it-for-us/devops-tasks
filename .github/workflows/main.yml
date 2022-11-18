@@ -1,4 +1,4 @@
-name: CI
+name: CI / CD
 
 on:
   pull_request:
@@ -35,3 +35,15 @@ jobs:
           context: .
           push: true
           tags: ghcr.io/it-for-us/devops-tasks:latest
+
+      - name: Kubernetes Set Context
+        uses: Azure/k8s-set-context@v3.0
+        with:
+          kubeconfig: ${{secrets.KUBERNETES_SECRET}}
+
+      - name: Deploy to the Kubernetes cluster
+        uses: Azure/k8s-deploy@v4
+        with:
+          namespace: devops
+          manifests: kubernetes.yml
+          images: firatkucuk/devops-tasks:latest
